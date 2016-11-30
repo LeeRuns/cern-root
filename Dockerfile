@@ -1,6 +1,6 @@
 FROM centos:latest
 MAINTAINER alexander.mazurov <alexander.mazurov@gmail.com>
-ARG version="6.06.00"
+ARG version="6.08.00"
 LABEL description="CERN ROOT framework"
 LABEL version="${version}"
 
