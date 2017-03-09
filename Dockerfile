@@ -6,7 +6,7 @@ LABEL version="${version}"
 
 RUN yum -y install epel-release 
 RUN yum -y install gcc-c++ bzip2 git vim libpng libjpeg \
-     python-devel libSM libX11 libXext libXpm libXft python-pip cmake\
+     python-devel libSM libX11 libXext libXpm libXft gsl-devel python-pip make cmake3\
      && yum -y clean all
 RUN pip install --upgrade pip && pip install jupyter
 RUN ln -s /usr/bin/cmake3 /usr/bin/cmake
