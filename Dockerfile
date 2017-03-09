@@ -1,13 +1,15 @@
 FROM centos:latest
 MAINTAINER alexander.mazurov <alexander.mazurov@gmail.com>
-ARG version="6.08.00"
+ARG version="6.09.02"
 LABEL description="CERN ROOT framework"
 LABEL version="${version}"
 
-RUN yum -y install epel-release gcc-c++ bzip2 git vim libpng libjpeg\
+RUN yum -y install epel-release gcc-c++ bzip2 git vim cmake3 libpng libjpeg \
+     python-devel libSM libX11 libXext libXpm libXft\
      && yum -y clean all
 RUN yum -y install python-pip && yum -y clean all
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip && pip install jupyter
+RUN ln -s /usr/bin/cmake3 /usr/bin/cmake
 
 # Set ROOT environment
 ENV ROOTSYS         "/opt/root"
