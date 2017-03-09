@@ -4,10 +4,10 @@ ARG version="6.09.02"
 LABEL description="CERN ROOT framework"
 LABEL version="${version}"
 
-RUN yum -y install epel-release gcc-c++ bzip2 git vim cmake3 libpng libjpeg \
-     python-devel libSM libX11 libXext libXpm libXft\
+RUN yum -y install epel-release 
+RUN yum -y install gcc-c++ bzip2 git vim libpng libjpeg \
+     python-devel libSM libX11 libXext libXpm libXft python-pip cmake\
      && yum -y clean all
-RUN yum -y install python-pip && yum -y clean all
 RUN pip install --upgrade pip && pip install jupyter
 RUN ln -s /usr/bin/cmake3 /usr/bin/cmake
 
